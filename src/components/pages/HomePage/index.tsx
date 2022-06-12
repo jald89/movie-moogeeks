@@ -29,7 +29,10 @@ const HomePage = () => {
         isFetching,
      } = useQuery(
         ['movies', currentPage, searchValue],
-        () => getMovies(currentPage, searchValue),
+        () => {
+            console.log(currentPage, searchValue)
+            return getMovies(currentPage, searchValue)
+        },
         {
             refetchOnWindowFocus: false,
             refetchOnMount: false,
@@ -46,9 +49,9 @@ const HomePage = () => {
 
     useEffect(() => {
         if (searchValue) {
-            setCurrentPage(0)
+            setCurrentPage(1)
             setSearchParams({
-                page: `${currentPage}`,
+                page: `1`,
                 search: searchValue,
             })
         }
