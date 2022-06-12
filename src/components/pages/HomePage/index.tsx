@@ -46,6 +46,7 @@ const HomePage = () => {
 
     useEffect(() => {
         if (searchValue) {
+            setCurrentPage(0)
             setSearchParams({
                 page: `${currentPage}`,
                 search: searchValue,
